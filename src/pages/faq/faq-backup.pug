@@ -1,0 +1,56 @@
+.pages-inner.about-dr
+  Loader(v-show='loading')
+  .content_part(v-if='props && !loading')
+    Header()
+    .inner-page-section
+      .container
+        .inner-page-heading
+          h1(v-if='props.title.rendered' v-html:span='props.title.rendered')
+      .container
+        .content-wrap
+          .col9
+              div(role='tablist')
+                b-card.mb-1(no-body='')
+                  b-card-header.p-1(header-tag='header' role='tab')
+                    b-button(block='' href='#' v-b-toggle.accordion-1='' variant='info') Accordion 1
+                  b-collapse#accordion-1(visible='' accordion='my-accordion' role='tabpanel')
+                    b-card-body
+                      b-card-text
+                        | I start opened because 
+                        code visible
+                        |  is 
+                        code true
+                      b-card-text hello 1
+                b-card.mb-1(no-body='')
+                  b-card-header.p-1(header-tag='header' role='tab')
+                    b-button(block='' href='#' v-b-toggle.accordion-2='' variant='info') Accordion 2
+                  b-collapse#accordion-2(accordion='my-accordion' role='tabpanel')
+                    b-card-body
+                      b-card-text  hello 2
+                b-card.mb-1(no-body='')
+                  b-card-header.p-1(header-tag='header' role='tab')
+                    b-button(block='' href='#' v-b-toggle.accordion-3='' variant='info') Accordion 3
+                  b-collapse#accordion-3(accordion='my-accordion' role='tabpanel')
+                    b-card-body
+                      b-card-text  hello 3
+          .col3
+            .sidebar-menu
+              ul
+                li
+                  router-link( to='/first-visit' v-bind:class="{ active: isActive }") First Visit to the Orthodontist
+                li
+                  router-link( to='/patient-gallery' v-bind:class="{ active: isActive }") Gallery of Smiles
+                li
+                  router-link( to='/faq' v-bind:class="{ active: isActive }") FAQ
+                li
+                  router-link( to='/common-problems' v-bind:class="{ active: isActive }") Common Problems
+                li
+                  router-link( to='/oral-hygiene' v-bind:class="{ active: isActive }") Oral Hygiene While in Braces
+                li
+                  router-link( to='/emergencies' v-bind:class="{ active: isActive }") Orthodontic Emergencies
+                li
+                  router-link( to='/foods-to-avoid' v-bind:class="{ active: isActive }") Foods To Avoid With Braces
+                li
+                  router-link( to='/patient-forms' v-bind:class="{ active: isActive }") New Patient Forms      
+    Footer()
+  

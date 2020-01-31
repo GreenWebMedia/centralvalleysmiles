@@ -1,0 +1,31 @@
+.pages-inner.about-dr
+  Loader(v-show='loading')
+  .content_part(v-if='props && !loading')
+    Header()
+    .inner-page-section
+      .container
+        .inner-page-heading
+          h1(v-if='props.title.rendered' v-html:span='props.title.rendered')
+      .container
+        .content-wrap
+          .col9
+            .page_content(v-if='props.content.rendered' v-html:span='props.content.rendered')
+          .col3
+            .sidebar-menu
+              ul
+                li
+                  router-link( to='/about-the-doctor' v-bind:class="{ active: isActive }") About Doctor Rondon
+                li
+                  router-link( to='/our-staff' v-bind:class="{ active: isActive }") The Rondon Orthodontics Team
+                li
+                  router-link( to='/maps-directions' v-bind:class="{ active: isActive }") Directions to Our Orthodontist Offices
+                li
+                  router-link( to='/financial-insurance' v-bind:class="{ active: isActive }") Financial &amp; Insurance Information
+                li
+                  router-link( to='/request-appointment' v-bind:class="{ active: isActive }") Request Appointment with Dr. Rondon
+                li
+                  router-link( to='/links' v-bind:class="{ active: isActive }") More Orthodontics Resources
+                li
+                  router-link( to='/office-policies-mission' v-bind:class="{ active: isActive }") Orthodontics Office Mission &amp; Policies    
+    Footer()
+  

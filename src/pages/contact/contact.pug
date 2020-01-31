@@ -1,0 +1,41 @@
+.pages-inner.about-dr
+  Loader(v-show='loading')
+  .content_part(v-if='props && !loading')
+    Header()
+    .inner-page-section
+      .container
+        .inner-page-heading          
+          h1(v-if='props.title.rendered' v-html:span='props.title.rendered')
+      .container.map-box
+        iframe(src='https://www.google.com/maps/d/embed?mid=14yPf07krWO6YGWS5wWYDLbveO2izrtF1' width='100%' height='480')                
+      .container
+        .content-wrap.content-wrap-rkd
+          .col12
+            .page_content(v-if='props.content.rendered' v-html:span='props.content.rendered')
+        .container
+          .two-location-edit
+            .col6
+              .location-box
+                h4(v-if='props.acf.first_location_heading' v-html:span='props.acf.first_location_heading')
+                p
+                  span(v-if='props.acf.first_location_address' v-html:span='props.acf.first_location_address')
+                router-link(v-bind:to='props.acf.first_location_direction') Maps/Directions
+                p
+                  span Phone :  
+                    span(v-if='props.acf.first_location_phone' v-html:span='props.acf.first_location_phone')                  
+                p
+                  span Fax : 
+                    span(v-if='props.acf.first_location_fax' v-html:span='props.acf.first_location_fax')
+            .col6
+              .location-box
+                h4(v-if='props.acf.second_location_heading' v-html:span='props.acf.second_location_heading')
+                p
+                  span(v-if='props.acf.second_location_address' v-html:span='props.acf.second_location_address')
+                router-link(v-bind:to='props.acf.first_location_direction') Maps/Directions
+                p
+                  span Phone : 
+                    span(v-if='props.acf.second_location_phone' v-html:span='props.acf.first_location_phone')                  
+                p
+                  span Fax : 
+                    span(v-if='props.acf.second_location_fax' v-html:span='props.acf.second_location_fax')
+    Footer()

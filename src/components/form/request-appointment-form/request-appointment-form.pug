@@ -1,0 +1,77 @@
+.form-contact.referfriend_form_outer
+  form.form-contact__form(@submit.prevent='validate', method='post')  
+    .form-contact__group
+      label.form-contact__label(:class="{ 'form-contact__label--active': patientName }") Patient Name*   
+      input.form-contact__input(name='patientName', v-model='patientName', v-validate="'required|alpha_spaces'", :class="{ 'form-contact__input--error': errors.has('patientName') }", type='text')     
+      .form-contact__error-message(v-show="errors.has('patientName')") Please fill in the required field.
+
+    .form-contact__group.radioo_box
+      label.form-contact__label(:class="{ 'form-contact__label--active': radiographs }") New Patient? 
+      label.radioclear
+        input.form-contact__input(name='radiographs', v-model='radiographs', checked='checked', v-validate="'required'", :class="{ 'form-contact__input--error': errors.has('radiographs') }", type='radio' , value='Yes')
+        span Yes
+      label.radioclear    
+        input.form-contact__input(name='radiographs', v-model='radiographs', :class="{ 'form-contact__input--error': errors.has('radiographs') }", type='radio' , value='No')
+        span No        
+      .form-contact__error-message(v-show="errors.has('radiographs')") Please select one.
+
+    .form-contact__group
+      label.form-contact__label(:class="{ 'form-contact__label--active': patientemail }") Email* 
+      input.form-contact__input(name='patientemail', v-model='patientemail', v-validate="'email'", :class="{ 'input': true, 'form-contact__input--error': errors.has('patientemail') }")
+      .form-contact__error-message(v-show="errors.has('patientemail')")  Please fill in the required field.
+
+    .form-contact__group
+      label.form-contact__label(:class="{ 'form-contact__label--active': patientAddress }") Address   
+      input.form-contact__input(name='patientAddress', v-model='patientAddress', type='text')
+
+    .form-contact__group
+      label.form-contact__label(:class="{ 'form-contact__label--active': phoneNumber }") Phone   
+      input.form-contact__input(name='phoneNumber', v-model='phoneNumber', type='text')
+
+    .form-contact__group
+      label.form-contact__label(:class="{ 'form-contact__label--active': preferredDays }") Preferred Days   
+      input.form-contact__input(name='preferredDays', v-model='preferredDays', type='text')
+      
+    .form-contact__group
+      label.form-contact__label(:class="{ 'form-contact__label--active': convenientTimes }") Convenient Times   
+      input.form-contact__input(name='convenientTimes', v-model='convenientTimes', type='text')
+
+    .form-contact__group
+      label.form-contact__label(:class="{ 'form-contact__label--active': ourPractice }") How did you hear about our practice?
+      select.form-contact__input(name='ourPractice', v-model='ourPractice', placeholder='Choose One')
+          option(value='') Choose One
+          option(value='Dentist') Dentist
+          option(value='Advertisement') Advertisement
+          option(value='A Friend') A Friend
+          option(value='Internet') Internet
+          option(value='Staff Member') Staff Member
+          option(value='Yellow Pages') Yellow Pages
+          option(value='Other') Other
+
+    .form-contact__group
+      label.form-contact__label(:class="{ 'form-contact__label--active': ourWebsite }") How did you find our web site?
+      select.form-contact__input(name='ourWebsite', v-model='ourWebsite', placeholder='Choose One')
+          option(value='') Choose One
+          option(value='Dentist') Dentist
+          option(value='Search Engine') Search Engine
+          option(value='Advertisement') Advertisement
+          option(value='A Friend') A Friend          
+          option(value='Other') Other     
+
+    .form-contact__group
+      label.form-contact__label(:class="{ 'form-contact__label--active': generalDentist }") Name and Address of General Dentist* 
+      textarea.form-contact__textarea(name='generalDentist', v-model='generalDentist' :class="{ 'form-contact__input--error': errors.has('generalDentist') }", type='textarea')
+      .form-contact__error-message(v-show="errors.has('generalDentist')") Message is required.
+
+    .form-contact__group
+      label.form-contact__label(:class="{ 'form-contact__label--active': message }") Comment: 
+      textarea.form-contact__textarea(name='message', v-model='message' :class="{ 'form-contact__input--error': errors.has('message') }", type='textarea')
+      .form-contact__error-message(v-show="errors.has('message')") Message is required.        
+      
+                 
+    .form-contact__group.form-contact__group--button
+      .form-contact__submit-button(:class="{ 'form-contact__submit-button--success': formSuccess }" @click='validate')
+        .form-contact__submit-overlay(:class="{ 'form-contact__submit-overlay--showing': formSubmitted  && !formSuccess }")
+        span.form-contact__submit-label(:class="{ 'form-contact__submit-label--hidden': formSuccess }") Send
+        .form-contact__submit-success(:class="{ 'form-contact__submit-success--showing': formSuccess }")
+        span.form-contact__submit-check(:class="{ 'form-contact__submit-check--showing': formSuccess }")

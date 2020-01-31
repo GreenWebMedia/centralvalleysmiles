@@ -1,0 +1,146 @@
+#header(v-if='props')
+  #header-outer
+   header#top
+    .container
+      .headerphone
+        span(v-if='props.acf.locations' v-html:span='props.acf.locations' alt='locations')
+    .container
+      .col3
+        router-link( to='/')
+          img(v-if='props.acf.logo' v-bind:src='props.acf.logo' alt='logo')
+      .col9
+        #nav.navigation-main(role='navigation')
+          ul
+            li
+              router-link( to='/about-the-doctor' v-bind:class="{ active: isActive }") About
+              ul.dropdown
+                li
+                  router-link( to='/about-the-doctor' v-bind:class="{ active: isActive }") About Doctor Rondon
+                li
+                  router-link( to='/our-staff' v-bind:class="{ active: isActive }") The Rondon Orthodontics Team
+                li
+                  router-link( to='/maps-directions' v-bind:class="{ active: isActive }") Directions to Our Orthodontist Offices
+                li
+                  router-link( to='/financial-insurance' v-bind:class="{ active: isActive }") Financial &amp; Insurance Information
+                li
+                  router-link( to='/request-appointment' v-bind:class="{ active: isActive }") Request Appointment with Dr. Rondon
+                li
+                  router-link( to='/links' v-bind:class="{ active: isActive }") More Orthodontics Resources
+                li
+                  router-link( to='/office-policies-mission' v-bind:class="{ active: isActive }") Orthodontics Office Mission &amp; Policies
+            li
+              router-link( to='/first-visit' v-bind:class="{ active: isActive }") Patient Info
+              ul.dropdown
+                li
+                  router-link( to='/first-visit' v-bind:class="{ active: isActive }") First Visit to the Orthodontist
+                li
+                  router-link( to='/patient-gallery' v-bind:class="{ active: isActive }") Gallery of Smiles
+                li
+                  router-link( to='/faq' v-bind:class="{ active: isActive }") FAQ
+                li
+                  router-link( to='/common-problems' v-bind:class="{ active: isActive }") Common Problems
+                li
+                  router-link( to='/oral-hygiene' v-bind:class="{ active: isActive }") Oral Hygiene While in Braces
+                li
+                  router-link( to='/emergencies' v-bind:class="{ active: isActive }") Orthodontic Emergencies
+                li
+                  router-link( to='/foods-to-avoid' v-bind:class="{ active: isActive }") Foods To Avoid With Braces
+                li
+                  router-link( to='/patient-forms' v-bind:class="{ active: isActive }") New Patient Forms
+            li
+              router-link( to='/early-treatment' v-bind:class="{ active: isActive }") Treatment &amp; Services
+              ul.dropdown
+                li
+                  router-link( to='/early-treatment' v-bind:class="{ active: isActive }") Early Orthodontic Evaluation
+                li
+                  router-link( to='/adult-treatment' v-bind:class="{ active: isActive }") Adult Treatment
+                li
+                  router-link( to='/types-of-braces' v-bind:class="{ active: isActive }") Types of Braces
+                li
+                  router-link( to='/invisalign' v-bind:class="{ active: isActive }") Invisalign®
+                li
+                  router-link( to='/damon-braces' v-bind:class="{ active: isActive }") Damon® Braces
+                li
+                  router-link( to='/retentionphase' v-bind:class="{ active: isActive }") Retention Phase of Treatment
+                li
+                  router-link( to='/orthognathic-surgery' v-bind:class="{ active: isActive }") Orthognathic Surgery
+            li
+              router-link( to='/testimonials' v-bind:class="{ active: isActive }") Testimonials
+            li
+              a(href='https://rondon-orthodontics.patientrewardshub.com/' target='_blank') Rewards
+            li
+              router-link( to='/contact' v-bind:class="{ active: isActive }") Contact
+        .container-fluid.side-menu-toggle
+          span.idw-icon-menu(onclick='openNav()')
+            i.fa.fa-bars
+          #mySidenav.sidenav
+            a.closebtn.idw-icon-close(href='javascript:void(0)' onclick='closeNav()')
+              i.fa.fa-times
+            ul
+              li.has-submenu
+                router-link( to='/about-the-doctor' v-bind:class="{ active: isActive }") About About
+                span(onclick='about()')
+                  i.fa.fa-plus
+                ul#about.sidenav-submenu(style='display: none;')
+                  li
+                    router-link( to='/about-the-doctor' v-bind:class="{ active: isActive }") About Doctor Rondon
+                  li
+                    router-link( to='/our-staff' v-bind:class="{ active: isActive }") The Rondon Orthodontics Team
+                  li
+                    router-link( to='/maps-directions' v-bind:class="{ active: isActive }") Directions to Our Orthodontist Offices
+                  li
+                    router-link( to='/financial-insurance' v-bind:class="{ active: isActive }") Financial &amp; Insurance Information
+                  li
+                    router-link( to='/request-appointment' v-bind:class="{ active: isActive }") Request Appointment with Dr. Rondon
+                  li
+                    router-link( to='/links' v-bind:class="{ active: isActive }") More Orthodontics Resources
+                  li
+                    router-link( to='/office-policies-mission' v-bind:class="{ active: isActive }") Orthodontics Office Mission &amp; Policies
+              li.has-submenu
+                router-link( to='/first-visit' v-bind:class="{ active: isActive }") Patient Info
+                span(onclick='patient()')
+                  i.fa.fa-plus
+                ul#patient.sidenav-submenu(style='display: none;')
+                  li
+                    router-link( to='/first-visit' v-bind:class="{ active: isActive }") First Visit to the Orthodontist
+                  li
+                    router-link( to='/patient-gallery' v-bind:class="{ active: isActive }") Gallery of Smiles
+                  li
+                    router-link( to='/faq' v-bind:class="{ active: isActive }") FAQ
+                  li
+                    router-link( to='/common-problems' v-bind:class="{ active: isActive }") Common Problems
+                  li
+                    router-link( to='/oral-hygiene' v-bind:class="{ active: isActive }") Oral Hygiene While in Braces
+                  li
+                    router-link( to='/emergencies' v-bind:class="{ active: isActive }") Orthodontic Emergencies
+                  li
+                    router-link( to='/foods-to-avoid' v-bind:class="{ active: isActive }") Foods To Avoid With Braces
+                  li
+                    router-link( to='/patient-forms' v-bind:class="{ active: isActive }") New Patient Forms
+              li.has-submenu
+                router-link( to='/early-treatment' v-bind:class="{ active: isActive }") Treatment &amp; Services
+                span(onclick='treatment()')
+                  i.fa.fa-plus
+                ul#treatment.sidenav-submenu(style='display: none;')
+                  li
+                    router-link( to='/early-treatment' v-bind:class="{ active: isActive }") Early Orthodontic Evaluation
+                  li
+                    router-link( to='/adult-treatment' v-bind:class="{ active: isActive }") Adult Treatment
+                  li
+                    router-link( to='/types-of-braces' v-bind:class="{ active: isActive }") Types of Braces
+                  li
+                    router-link( to='/invisalign' v-bind:class="{ active: isActive }") Invisalign®
+                  li
+                    router-link( to='/damon-braces' v-bind:class="{ active: isActive }") Damon® Braces
+                  li
+                    router-link( to='/retentionphase' v-bind:class="{ active: isActive }") Retention Phase of Treatment
+                  li
+                    router-link( to='/orthognathic-surgery' v-bind:class="{ active: isActive }") Orthognathic Surgery
+              li
+                router-link( to='/testimonials' v-bind:class="{ active: isActive }") Testimonials
+              li
+                a(href='https://rondon-orthodontics.patientrewardshub.com/' target='_blank') Rewards
+              li
+                router-link( to='/contact' v-bind:class="{ active: isActive }") Contact
+  
+

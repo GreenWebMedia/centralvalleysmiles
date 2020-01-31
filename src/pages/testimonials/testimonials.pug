@@ -1,0 +1,19 @@
+.pages-inner.about-dr
+  Loader(v-show='loading')
+  .content_part(v-if='props && !loading')
+    Header()
+    .inner-page-section
+      .container
+        .inner-page-heading          
+          h1(v-if='props.title.rendered' v-html:span='props.title.rendered')
+      .container
+        .content-wrap.content-wrap-staff
+          .col12(v-if='props.acf.testimonials')
+            .testimonial-box(v-for='(Testimonials, index) in props.acf.testimonials')
+              p
+                em(v-if='Testimonials.testimonial_content' v-html='Testimonials.testimonial_content')
+              p
+                strong(v-if='Testimonials.testimonial_author' v-html='Testimonials.testimonial_author')  
+              .divider-border    
+    Footer()
+  

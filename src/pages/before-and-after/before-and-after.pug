@@ -1,0 +1,18 @@
+.pages-inner.about-dr
+  Loader(v-show='loading')
+  .content_part(v-if='props && !loading')
+    Header()
+    .inner-page-section
+      .container
+        .inner-page-heading.heading-center
+          h1 Braces and Invisalign
+          h1(v-if='props.title.rendered' v-html:span='props.title.rendered')
+      .container
+        .content-wrap.content-wrap-staff
+          .col12
+            .afterbox
+              ul(v-if='props.acf.before_after_image')
+                li(v-for='(AfterImage, index) in props.acf.before_after_image')
+                  img.img-responsive(v-bind:src='AfterImage.photo' v-bind:alt='"PatientPhoto" + index')    
+    Footer()
+  

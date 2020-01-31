@@ -1,0 +1,31 @@
+.pages-inner.about-dr
+  Loader(v-show='loading')
+  .content_part(v-if='props && !loading')
+    Header()
+    .inner-page-section
+      .container
+        .inner-page-heading
+          h1(v-if='props.title.rendered' v-html:span='props.title.rendered')
+      .container
+        .content-wrap.foot-avoid
+          .col9
+            .page_content(v-if='props.content.rendered' v-html:span='props.content.rendered')
+          .col3
+            .sidebar-menu
+              ul
+                li
+                  router-link( to='/early-treatment' v-bind:class="{ active: isActive }") Early Orthodontic Evaluation
+                li
+                  router-link( to='/adult-treatment' v-bind:class="{ active: isActive }") Adult Treatment
+                li
+                  router-link( to='/types-of-braces' v-bind:class="{ active: isActive }") Types of Braces
+                li
+                  router-link( to='/invisalign' v-bind:class="{ active: isActive }") Invisalign®
+                li
+                  router-link( to='/damon-braces' v-bind:class="{ active: isActive }") Damon® Braces
+                li
+                  router-link( to='/retentionphase' v-bind:class="{ active: isActive }") Retention Phase of Treatment
+                li
+                  router-link( to='/orthognathic-surgery' v-bind:class="{ active: isActive }") Orthognathic Surgery                      
+    Footer()
+  

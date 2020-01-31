@@ -1,0 +1,14 @@
+.pages-inner.about-dr
+  Loader(v-show='loading')
+  .content_part(v-if='props && !loading')
+    Header()
+    .inner-page-section
+      .container
+        .inner-page-heading
+          h1(v-if='props.title.rendered' v-html:span='props.title.rendered')
+      .container
+        .content-wrap.request-editrk
+          .col12
+            .page_content(v-if='props.content.rendered' v-html:span='props.content.rendered')                 
+    Footer()
+  

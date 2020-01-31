@@ -1,0 +1,27 @@
+.pages-inner.about-dr
+  Loader(v-show='loading')
+  .content_part(v-if='props && !loading')
+    Header()
+    .inner-page-section
+      .container
+        .inner-page-heading
+          h1(v-if='props.title.rendered' v-html:span='props.title.rendered')
+      .container
+        .content-wrap.content-wrap-staff
+          .col12
+            img.img-responsiveimg.img-responsive(v-if='props.acf.staffs_photo' v-bind:src='props.acf.staffs_photo')
+            p
+              span(v-if='props.acf.staffs_content' v-html:span='props.acf.staffs_content')
+            .staff-box-rk(v-if='props.acf.staff_details')  
+              .staff-details(v-for='StaffDetails in props.acf.staff_details')
+                p.staff-head-rk
+                  strong
+                    img.staffphoto(v-bind:src='StaffDetails.staff_photo' v-bind:alt='"staffphoto" + index')
+                    span(v-if='StaffDetails.staff_name' v-html='StaffDetails.staff_name')
+                  | , 
+                  em(v-if='StaffDetails.staff_designation' v-html='StaffDetails.staff_designation')
+                span(v-if='StaffDetails.staff_description' v-html='StaffDetails.staff_description')
+                .clear
+                .divider-border     
+    Footer()
+  

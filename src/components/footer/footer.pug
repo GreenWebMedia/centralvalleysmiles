@@ -1,0 +1,26 @@
+#footer(v-if='props')
+  #footer-outer
+    .container
+      .col3
+        h4 About Us
+        p
+          span(v-if='props.acf.about_us' v-html:span='props.acf.about_us' alt='about_us')
+      .col3
+        h4 Our Services
+        p
+          span(v-if='props.acf.our_services' v-html:span='props.acf.our_services' alt='our_services')
+      .col3
+        h4 Our Locations
+        p
+          span(v-if='props.acf.our_locations' v-html:span='props.acf.our_locations' alt='our_locations')
+      .col3
+        h4 Contact Us
+        p
+          span(v-if='props.acf.contact_us' v-html:span='props.acf.contact_us' alt='contact_us')
+  #copyright
+    .container
+      .col.span_5
+        p
+          | &copy; 2020 Rondon Orthodontics. All Rights Reserved. | 
+          router-link( to='/privacy-policy' v-bind:class="{ active: isActive }") Privacy Policy
+

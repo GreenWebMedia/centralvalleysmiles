@@ -1,0 +1,59 @@
+.pages-home
+  Loader(v-show='loading')
+  .content_part(v-if='props && !loading')
+    Header()  
+    .hero-banner-section(v-bind:style="{ backgroundImage: 'url('+ props.acf.homepage_banner_bg +')'}")
+      .container
+        .col6
+          h1(v-if='props.acf.homepage_banner_text' v-html:span='props.acf.homepage_banner_text')
+          router-link.request-button-rk(v-bind:to='props.acf.url') Request Free Evaluation
+        .col6
+    .our-orthodontic-section(v-bind:style="{ backgroundImage: 'url('+ props.acf.callout_bg +')'}")
+      .container(v-if='props.acf.callout_list')
+        .col4(v-for='CalloutList in props.acf.callout_list')
+          .col4-box
+            h5(v-if='CalloutList.callout_heading' v-html='CalloutList.callout_heading')
+            p
+              span(v-if='CalloutList.callout_content' v-html='CalloutList.callout_content')            
+            router-link.read-more-button(v-bind:to='CalloutList.callout_url') Read More      
+    .check-out-section
+      .container
+        .col12
+          h2(v-if='props.acf.video_heading' v-html:span='props.acf.video_heading')
+          .iframe-embed
+            span(v-if='props.acf.video_frame' v-html:span='props.acf.video_frame')
+    .welcome-orthodontics-section
+      .container
+        .col8
+          h3
+            span(v-if='props.acf.welcome_heading' v-html:span='props.acf.welcome_heading')
+          p
+            span(v-if='props.acf.welcome_content' v-html:span='props.acf.welcome_content')
+        .col4
+          img.img-responsive(v-if='props.acf.welcome_image' v-bind:src='props.acf.welcome_image')
+    .yellow-section(v-bind:style="{ backgroundImage: 'url('+ props.acf.location_banner_bg +')'}")
+      .container
+        .col3
+          p
+            span(v-if='props.acf.location_first' v-html:span='props.acf.location_first')
+        .col3
+          p
+            span(v-if='props.acf.location_second' v-html:span='props.acf.location_second')
+        .col6
+          h2(v-if='props.acf.request_heading' v-html:span='props.acf.request_heading')
+          router-link.read-more-button.read-more-button-edit(v-bind:to='props.acf.request_url') Click Here
+    .partenr-logo-section
+      .container(v-if='props.acf.logo_list')
+        .col4(v-for='(LogoList, index) in props.acf.logo_list')                 
+          img(v-bind:src='LogoList.logo_image' v-bind:alt='"parterlogo" + index')      
+    .welcome-orthodontics-section.welcome-orthodontics-section-edit
+      .container
+        .col8
+          h5(v-if='props.acf.reward_heading' v-html:span='props.acf.reward_heading')
+          p
+            span(v-if='props.acf.reward_content' v-html:span='props.acf.reward_content')
+          a.read-more-button.read-more-button-edit.read-button-edit2(href='https://rondon-orthodontics.patientrewardshub.com/' target="_black") Click Here
+        .col4
+          img.img-responsive(v-if='props.acf.reward_image' v-bind:src='props.acf.reward_image')
+    Footer()
+      

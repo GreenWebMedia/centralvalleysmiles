@@ -1,0 +1,17 @@
+.pages-inner.about-dr
+  Loader(v-show='loading')
+  .content_part(v-if='props && !loading')
+    Header()
+    .inner-page-section
+      .container
+        .inner-page-heading
+          h1(v-if='props.title.rendered' v-html:span='props.title.rendered')
+      .container
+        .content-wrap.content-wrap-staff
+          .col12
+            .patient-box
+              ul(v-if='props.acf.patient_gallery')
+                li(v-for='(PatientGallery, index) in props.acf.patient_gallery')
+                  img.img-responsive(v-bind:src='PatientGallery.patient_image' v-bind:alt='"PatientImage" + index')    
+    Footer()
+  
