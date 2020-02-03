@@ -1,4 +1,4 @@
-const route = '//centralvalleysmiles.rgwplogin.com/wp-json'
+const route = '//centralvalleysmiles.com/wp-json'
 
 const api = () => {
   try {
