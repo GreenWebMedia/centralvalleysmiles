@@ -2,7 +2,7 @@ const route = '//centralvalleysmiles.com/wp-json'
 
 const api = () => {
   try {
-    return (document.location.protocol === 'https:' ? 'https://ssl' : 'http://') + route
+    return document.location.hostname === 'localhost' ? route : document.location.origin + '/wp-json'
   } catch (e) {
     return 'https://' + route
   }
