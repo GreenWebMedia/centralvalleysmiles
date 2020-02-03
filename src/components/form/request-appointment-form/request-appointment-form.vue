@@ -60,7 +60,7 @@ export default {
         .then(res => {
           this.formSuccess = true
           setTimeout(() => {
-            window.location.href = 'http://localhost:8080/thank-you'
+            window.location.href = 'https://centralvalleysmiles.com/thank-you'
           }, 400)
           setTimeout(() => {
             this.patientName = ''
